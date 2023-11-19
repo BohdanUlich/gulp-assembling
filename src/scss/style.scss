@@ -1,3 +1,31 @@
-@import 'null-style';
-@import 'variables';
-@import 'fonts';
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
+@import 'null-style.scss';
+@import 'variables.scss';
+
+/*Медиазапросы*/
+@mixin sm {
+  @media (max-width: map-get($breakpoints, sm)) {
+    @content;
+  }
+}
+@mixin md {
+  @media (max-width: map-get($breakpoints, md)) {
+    @content;
+  }
+}
+@mixin lg {
+  @media (max-width: map-get($breakpoints, lg)) {
+    @content;
+  }
+}
+@mixin xl {
+  @media (max-width: map-get($breakpoints, xl)) {
+    @content;
+  }
+}
+/*Медиазапросы*/
+
+body {
+  overflow-x: hidden;
+  font-family: 'Roboto', sans-serif;
+}

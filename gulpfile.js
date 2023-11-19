@@ -3,7 +3,6 @@ const sass = require('gulp-sass')(require('sass'))
 const csso = require('gulp-csso')
 const concat = require('gulp-concat')
 const include = require('gulp-file-include')
-// const htmlmin = require('gulp-htmlmin')
 const autoprefixer = require('gulp-autoprefixer')
 const uglify = require('gulp-uglify-es').default
 const rename = require('gulp-rename')
@@ -23,21 +22,14 @@ const path = {
 }
 
 function html() {
-  return (
-    src('src/*.html')
-      .pipe(
-        include({
-          prefix: '@@',
-        })
-      )
-      // .pipe(
-      //   htmlmin({
-      //     collapseWhitespace: true,
-      //   })
-      // )
-      .pipe(dest('dist'))
-      .pipe(browsersync.stream())
-  )
+  return src('src/*.html')
+    .pipe(
+      include({
+        prefix: '@@',
+      })
+    )
+    .pipe(dest('dist'))
+    .pipe(browsersync.stream())
 }
 
 function js() {
@@ -67,14 +59,14 @@ function img() {
   return src('src/assets/img/**/*.jpg')
     .pipe(
       webp({
-        quality: 70,
+        quality: 100,
       })
     )
     .pipe(dest('dist/assets/img'))
     .pipe(src('src/assets/img/**/*.png'))
     .pipe(
       webp({
-        quality: 70,
+        quality: 100,
       })
     )
     .pipe(dest('dist/assets/img'))
